@@ -39,6 +39,13 @@ def n_from_end( start_node: Node, n: int ):
 
     return start_node
 
+def del_n_from_end( start_node: Node, n: int ):
+
+    slice_node  = n_from_end( start_node, n + 1 )
+    del_node    = slice_node.nxt
+    bridge_node = del_node.nxt
+
+    slice_node.nxt = bridge_node
 
 #cur_node = start_node
 
@@ -49,9 +56,15 @@ while ( cur_node ):
    print(cur_node.value)
    cur_node = cur_node.nxt
 
+print("--------\n")
 print(n_from_end(start_node, 4).value)
 
-
+del_n_from_end(start_node, 4)
+print("--------\n")
+cur_node = start_node
+while ( cur_node ):
+   print(cur_node.value)
+   cur_node = cur_node.nxt
 
 
 # 3,7,24,65,9,32,11,0,99,4
